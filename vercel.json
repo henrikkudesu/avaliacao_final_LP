@@ -1,12 +1,23 @@
 {
-    "version": 2,
-    "builds": [
-      { "src": "api_crud/index.js", "use": "@vercel/node" },
-      { "src": "front_crud_html_css/**/*", "use": "@vercel/static" }
-    ],
-    "routes": [
-      { "src": "/api/(.*)", "dest": "api_crud/index.js" },
-      { "src": "/(.*)", "dest": "front_crud_html_css/$1" }
-    ]
-  }
-  
+  "version": 2,
+  "builds": [
+    {
+      "src": "api_crud/index.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "front_crud_html_css/index.html",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api_crud/index.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/front_crud_html_css/index.html"
+    }
+  ]
+}
